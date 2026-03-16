@@ -1,0 +1,11 @@
+package ad.rabbitmq.data;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/data")
+public class DataController {
+
+	
+}
