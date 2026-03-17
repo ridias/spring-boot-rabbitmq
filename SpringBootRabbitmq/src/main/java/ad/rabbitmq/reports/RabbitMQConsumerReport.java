@@ -1,50 +1,51 @@
-package ad.rabbitmq.data;
+package ad.rabbitmq.reports;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.amqp.support.AmqpHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.stereotype.Service;
-import org.springframework.amqp.support.AmqpHeaders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rabbitmq.client.Channel;
 
-import ad.rabbitmq.services.single_processor.SingleMessageProcessorServiceData;
+import ad.rabbitmq.data.RabbitMQConsumerData;
+import ad.rabbitmq.services.single_processor.SingleMessageProcessorServiceReport;
 import ad.rabbitmq.shared.models.RabbitMessage;
 
 @Service
-public class RabbitMQConsumerData {
+public class RabbitMQConsumerReport {
 
 	private static final Logger log = LoggerFactory.getLogger(RabbitMQConsumerData.class);
 	
 	private final ObjectMapper objectMapper = new ObjectMapper();
 	
 	@Autowired
-	private SingleMessageProcessorServiceData messageProcessor;
+	private SingleMessageProcessorServiceReport messageProcessor;
 	
-	@RabbitListener(queues = {"${rabbitmq.queue.data.name}"}, ackMode = "MANUAL")
+	@RabbitListener(queues = {"${rabbitmq.queue.reports.name}"}, ackMode = "MANUAL")
 	public void consume(String message, Channel channel, @Header(AmqpHeaders.DELIVERY_TAG) long tag) {
 		this.processMessage(message, channel, tag);
 	}
 	
-	@RabbitListener(queues = {"${rabbitmq.queue.data.name}"}, ackMode = "MANUAL")
+	@RabbitListener(queues = {"${rabbitmq.queue.reports.name}"}, ackMode = "MANUAL")
 	public void consume2(String message, Channel channel, @Header(AmqpHeaders.DELIVERY_TAG) long tag) {
 		this.processMessage(message, channel, tag);
 	}
 	
-	@RabbitListener(queues = {"${rabbitmq.queue.data.name}"}, ackMode = "MANUAL")
+	@RabbitListener(queues = {"${rabbitmq.queue.reports.name}"}, ackMode = "MANUAL")
 	public void consume3(String message, Channel channel, @Header(AmqpHeaders.DELIVERY_TAG) long tag) {
 		this.processMessage(message, channel, tag);
 	}
 	
-	@RabbitListener(queues = {"${rabbitmq.queue.data.name}"}, ackMode = "MANUAL")
+	@RabbitListener(queues = {"${rabbitmq.queue.reports.name}"}, ackMode = "MANUAL")
 	public void consume4(String message, Channel channel, @Header(AmqpHeaders.DELIVERY_TAG) long tag) {
 		this.processMessage(message, channel, tag);
 	}
 	
-	@RabbitListener(queues = {"${rabbitmq.queue.data.name}"}, ackMode = "MANUAL")
+	@RabbitListener(queues = {"${rabbitmq.queue.reports.name}"}, ackMode = "MANUAL")
 	public void consume5(String message, Channel channel, @Header(AmqpHeaders.DELIVERY_TAG) long tag) {
 		this.processMessage(message, channel, tag);
 	}

@@ -11,8 +11,10 @@ public class ResponseDataProcessed<T> {
 
 	private T data;
 	private LocalDateTime processedAt;
+	private boolean processed;
 	
 	public ResponseDataProcessed() {
 		this.processedAt = LocalDateTime.now();
+		processed = false;
 	}
 }

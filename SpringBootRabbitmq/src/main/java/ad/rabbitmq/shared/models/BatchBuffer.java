@@ -1,11 +1,10 @@
-package ad.rabbitmq.shared;
+package ad.rabbitmq.shared.models;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
 import ad.rabbitmq.services.multi_processor.MultipleMessageProcessor;
-import ad.rabbitmq.shared.models.ResponseDataProcessed;
 
 public class BatchBuffer<T> {
 
